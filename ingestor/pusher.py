@@ -41,6 +41,7 @@ def _push_file(src_path, s3_path, verbose=False, overwrite=False):
     key = Key(_get_bucket(), s3_path)
     if s3_path.endswith('.TIF') or s3_path.endswith('.tif'):
         key.content_type = 'image/tiff'
+        key.content_disposition = 'attachment'
     if s3_path.endswith('.jpg'):
         key.content_type = 'image/jpeg'
     if s3_path.endswith('.txt'):
